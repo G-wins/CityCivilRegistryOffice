@@ -6,13 +6,7 @@
     <title>City Civil Registry</title>
 </head>
 <body>
-    <div>
-        @if(DB::connection()->getPdo())
-            Successfully Connected to DB and DB Name is {{ DB::connection()->getDatabaseName() }}
-        @else
-            Unable to connect to the database.
-        @endif
-    </div>
+    
 
     <form action="{{ url('/appointment') }}" method="POST">
         @csrf

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('appointment_type');
-            $table->date('appointment_date');
-            $table->string('reference_number')->unique();
-            $table->string('status')->default('Pending'); // Status field (Pending, Completed, No Show)
+            $table->string('name'); // Pangalan ng tao na may appointment
+            $table->string('appointment_type'); // Uri ng appointment
+            $table->date('appointment_date'); // Petsa ng appointment
+            $table->string('reference_number')->unique(); // Unique na reference number
+            $table->enum('status', ['Pending', 'Completed', 'No Show'])->default('Pending'); // Mas specific na status values (Pending, Completed, No Show)
             $table->boolean('attended')->default(false); // True kapag dumating sa appointment
-            $table->timestamps();
+            $table->timestamps(); // Para sa created_at at updated_at fields
         });
     }
 

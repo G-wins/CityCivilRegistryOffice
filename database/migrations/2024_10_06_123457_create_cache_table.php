@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Create the cache table
         Schema::create('cache', function (Blueprint $table) {
             $table->string('key')->primary();
             $table->mediumText('value');
-            $table->integer('expiration');
+            $table->timestamp('expiration')->nullable(); // Use timestamp for expiration to handle date-time values
         });
 
+        // Create the cache_locks table
         Schema::create('cache_locks', function (Blueprint $table) {
             $table->string('key')->primary();
             $table->string('owner');
-            $table->integer('expiration');
+            $table->timestamp('expiration')->nullable(); // Use timestamp for expiration to handle date-time values
         });
     }
 
