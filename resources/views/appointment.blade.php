@@ -6,10 +6,10 @@
     <title>City Civil Registry</title>
 </head>
 <body>
-    
 
     <form action="{{ url('/appointment') }}" method="POST">
         @csrf
+        
         <label for="name">Client Name:</label>
         <input type="text" name="name" required>
 
